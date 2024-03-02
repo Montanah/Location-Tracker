@@ -52,7 +52,7 @@ const LogInForm = () => {
         <h1>Login</h1>
         <p style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>
           Need an account?
-          <Link to="/SignUp" style={{ color: 'blue', textDecoration: 'none', marginLeft: '5px' }}>SignUp</Link>
+          <Link to="/Signup" style={{ color: 'blue', textDecoration: 'none', marginLeft: '5px' }}>SignUp</Link>
         </p>
         <form onSubmit={handleSubmit}>
           <div>

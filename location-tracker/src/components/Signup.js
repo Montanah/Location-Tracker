@@ -80,7 +80,7 @@ const SignUpForm = () => {
     );
 
     // Make the profile details POST request
-    fetch('http://3.85.54.102/api/post/profile', {
+    fetch('/api/post/profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ const SignUpForm = () => {
 
   useEffect(() => {
     if (signupSuccess) {
-      navigate('/LogIn');
+      navigate('/Login');
     }
   }, [signupSuccess, navigate]);
 
@@ -166,7 +166,7 @@ const SignUpForm = () => {
           <div>
             <p>
               Already have an account?
-              <button className='LSbutton' onClick={() => navigate('/LogIn')}>Login</button>
+              <button className='LSbutton' onClick={() => navigate('/Login')}>Login</button>
             </p>
             <p>Or sign up with:</p>
             <div className='button-container'>
