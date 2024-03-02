@@ -18,7 +18,7 @@ const SignUpForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://3.85.54.102/api/countries')
+    fetch('/api/countries')
       .then(response => response.json())
       .then(data => {
         setCountries(data);

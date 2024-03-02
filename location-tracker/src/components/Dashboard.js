@@ -22,13 +22,13 @@ const Dashboard = () => {
             </nav>
         </header>
         <div id='dashboard-container'>
-            <section id="school-topic-window">
-                <section id="school">
-                <h3 id="school-title">Level</h3>
+            <section id="sidebar-window">
+                <section id="sidebar">
+                <h3 id="sidebar-title">Level</h3>
                 <Sidebar/>
                 </section>
             </section>
-            <section id="study-window">
+            <section id="map-window">
                 <div id="contentdisplay">
                 <Map />
                 </div>

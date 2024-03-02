@@ -1,18 +1,47 @@
+import React, { useState, useEffect } from 'react';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
+
 const Map = () => {
-    return (
-        <div className="map">
-            <h1>Map</h1>
-            <div id="map" style={{ border: "0" }}>
-                <iframe
-                    frameBorder="0"
-                    style={{ width: "100%", height: "400px" }}
-                    src="https://www.google.com/maps/embed/v1/place?q=-0.7630853652954102,35.01589584350586&key=YOUR_GOOGLE_MAPS_API_KEY"
-                    allowFullScreen
-                    title="Location Map"
-                />
-            </div>
-        </div>
-    );
-}
+  const [userLocation, setUserLocation] = useState(null);
+
+  useEffect(() => {
+    const successCallback = (position) => {
+      const { latitude, longitude, accuracy } = position.coords;
+      console.log(`Latitude: ${latitude}, Longitude: ${longitude}, Accuracy: ${accuracy} meters`);
+
+      // Update the state with user's location details
+      setUserLocation({
+        latitude,
+        longitude,
+        accuracy,
+      });
+    };
+
+    const errorCallback = (error) => {
+      console.error(`ERROR(${error.code}): ${error.message}`);
+    };
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []); // Empty dependency array to run the effect only once
+
+  return (
+    <LoadScript
+      googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+    >
+      <GoogleMap
+        id="map"
+        mapContainerStyle={{ height: '400px', width: '100%' }}
+        zoom={8}
+        center={userLocation ? { lat: userLocation.latitude, lng: userLocation.longitude } : { lat: 0, lng: 0 }}
+      >
+        {/* Marker can be added here if needed */}
+      </GoogleMap>
+    </LoadScript>
+  );
+};
 
 export default Map;
