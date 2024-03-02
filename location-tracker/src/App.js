@@ -7,7 +7,6 @@ import SignUpForm from './components/Signup';
 import Dashboard from './components/Dashboard';
 // import { AppProvider } from './components/AppContext';
 
-
 function App() {
   return (
     <Router>
