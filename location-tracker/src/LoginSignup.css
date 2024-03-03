@@ -1,6 +1,6 @@
 #LS-Header {
 
-    background-color: #1E90FF;
+    /* background-color: #1E90FF; */
     padding: 5px;
     margin: 5px;
     margin-right: 20px;
@@ -29,7 +29,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: #0486ff;
     border-radius: 10px;
     box-shadow: 5px 5px 5px black;
   }
@@ -61,8 +61,9 @@
   .LSInput {
     padding: 5px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #000000; */
     border-radius: 4px;
+    box-shadow: 3px 3px 2px black;
   }
   
   #email-input {
@@ -87,7 +88,7 @@
   
     margin-top: 5px;
     padding: 8px 15px;
-    background-color: #4285f4;
+    background-color: #060606;
     color: #fff;
     border: none;
     border-radius: 4px;

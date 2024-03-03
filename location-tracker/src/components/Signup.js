@@ -6,8 +6,7 @@ import facebookLogo from '../images/FacebookLogo.png';
 import '../LoginSignup.css';
 
 const SignUpForm = () => {
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
+  const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVerify, setPasswordVerify] = useState('');
@@ -28,13 +27,10 @@ const SignUpForm = () => {
       });
   }, []);
 
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
+  const handleNameChange = (e) => {
+    setFullname(e.target.value);
   };
 
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -61,7 +57,7 @@ const SignUpForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!firstname || !lastname || !email || !password || !passwordVerify || !selectedCountry) {
+    if (!fullname || !email || !password || !passwordVerify || !selectedCountry) {
       setSignupError('Please fill in all required fields.');
       return;
     }
@@ -71,8 +67,7 @@ const SignUpForm = () => {
     }
 
     console.log(
-      'Sign up with first name:', firstname,
-      'last name:', lastname,
+      'Sign up with full name:', fullname,
       'email:', email,
       'password:', password,
       'passwordVerify:', passwordVerify,
@@ -86,8 +81,7 @@ const SignUpForm = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        firstname,
-        lastname,
+        fullname,
         email,
         password,
         country_id: selectedCountry,
@@ -118,7 +112,7 @@ const SignUpForm = () => {
         <img id="logo" src={appLogo} alt="Logo" />
       </div>
       <div className='loginSignUp'>
-        <h1>SignUp</h1>
+        <h1>Sign Up</h1>
         {signupSuccess ? (
           <div>
             <p>Sign up successful!</p>
@@ -129,12 +123,8 @@ const SignUpForm = () => {
         ) : (
           <form onSubmit={handleSubmit}>
             <div>
-              <label className='input-label'>First Name:</label>
-              <input className='LSInput' id='firstname-input' type="text" value={firstname} onChange={handleFirstNameChange} required />
-            </div>
-            <div>
-              <label className='input-label'>Last Name:</label>
-              <input className='LSInput' id='lastname-input' type="text" value={lastname} onChange={handleLastNameChange} required />
+              <label className='input-label'>Full Name:</label>
+              <input className='LSInput' id='firstname-input' type="text" value={fullname} onChange={handleNameChange} required />
             </div>
             <div>
               <label className='input-label'>Email:</label>
@@ -166,7 +156,7 @@ const SignUpForm = () => {
           <div>
             <p>
               Already have an account?
-              <button className='LSbutton' onClick={() => navigate('/Login')}>Login</button>
+              <button className='LSbutton' onClick={() => navigate('/')}>Login</button>
             </p>
             <p>Or sign up with:</p>
             <div className='button-container'>
