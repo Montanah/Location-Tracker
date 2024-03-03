@@ -112,7 +112,7 @@ const SignUpForm = () => {
         <img id="logo" src={appLogo} alt="Logo" />
       </div>
       <div className='loginSignUp'>
-        <h1>Sign Up</h1>
+        <h1 style={{ fontWeight: 'bold', fontSize: '20px' }}>Sign Up</h1>
         {signupSuccess ? (
           <div>
             <p>Sign up successful!</p>

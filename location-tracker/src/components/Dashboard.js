@@ -4,12 +4,13 @@ import Footer from './Footer';
 import Map from './Map';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import '../App.css';
 
 const Dashboard = () => {
 
   return (
     <div> 
-        <header>
+        <header id='dbheader'>
             <Header />
             <nav id="header-nav">
                 <div className="nav-line">

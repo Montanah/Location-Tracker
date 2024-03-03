@@ -49,10 +49,10 @@ const LogInForm = () => {
         <img id="logo" src={appLogo} alt="Logo" />
       </div>
       <div className="loginSignUp">
-        <h1>Login</h1>
+        <h1 style={{ fontWeight: 'bold', fontSize: '20px' }}>Login</h1>
         <p style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>
           Need an account?
-          <Link to="/Signup" style={{ color: 'red', textDecoration: 'none', marginLeft: '5px' }}>Sign Up</Link>
+          <Link to="/Signup" style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none', marginLeft: '5px' }}>Sign Up</Link>
         </p>
         <form onSubmit={handleSubmit}>
           <div>
