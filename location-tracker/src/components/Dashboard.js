@@ -1,5 +1,4 @@
 import React from 'react';
-import Profile from './ProfileDisplay';
 import Footer from './Footer';
 import Map from './Map';
 import Sidebar from './Sidebar';
@@ -10,22 +9,13 @@ const Dashboard = () => {
 
   return (
     <div> 
-        <header id='dbheader'>
+        <section>
             <Header />
-            <nav id="header-nav">
-                <div className="nav-line">
-                <ul className="header-nav-ul">
-                    <li>
-                    <Profile />
-                    </li>
-                </ul>
-                </div>
-            </nav>
-        </header>
-        <div id='dashboard-container'>
+        </section>
+        <section id='dashboard-container'>
             <section id="sidebar-window">
                 <section id="sidebar">
-                <h3 id="sidebar-title">Level</h3>
+                <h3 id="sidebar-title">Menu</h3>
                 <Sidebar/>
                 </section>
             </section>
@@ -35,7 +25,7 @@ const Dashboard = () => {
                 </div>
                 <Footer />
             </section>
-        </div>
+        </section>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import appLogo from '../images/location_tracker_web_app.png';
 import ProfileDisplay from './ProfileDisplay';
 import { Link } from 'react-router-dom';
+import '../App.css';
 
 const Header = () => {
   return (
@@ -17,7 +18,15 @@ const Header = () => {
           <li><Link to="/contact" className="text-white">Contact</Link></li>
         </ul>
       </nav>
-      <ProfileDisplay />
+      <nav id="header-nav">
+        <div className="nav-line">
+          <ul className="header-nav-ul">
+            <li>
+              <ProfileDisplay />
+                </li>
+            </ul>
+        </div>
+      </nav>
     </header>
   )
 }

@@ -5,7 +5,6 @@ import './App.css';
 import LogInForm from './components/Login';
 import SignUpForm from './components/Signup';
 import Dashboard from './components/Dashboard';
-// import { AppProvider } from './components/AppContext';
 
 function App() {
   return (
@@ -13,8 +12,8 @@ function App() {
       <div className="App">
           <Routes>
             {/* <Route path="/" element={<LandingPage />} /> */}
-            {/* <Route path="/" element={<LogInForm />} />
-            <Route path="/Signup" element={<SignUpForm />} /> */}
+            <Route path="/" element={<LogInForm />} />
+            <Route path="/Signup" element={<SignUpForm />} />
             <Route path="/Dashboard" element={<Dashboard />} />
           </Routes>
       </div>

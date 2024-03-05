@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ProfileDisplay from './ProfileDisplay';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const [hidden, setHidden] = useState(false);
@@ -32,9 +33,9 @@ const Sidebar = () => {
       </div>
         <div className="sidebarItem">
           <ul className="sidebarList">
-            <li className="sidebarListItem">Locations</li>
-            <li className="sidebarListItem">Map</li>
-            <li className="sidebarListItem">Logout</li>
+            <Link to=""><li className="sidebarListItem">Locations</li></Link>
+            <Link to="/Map"><li className="sidebarListItem">Map</li></Link>
+            <Link to=""><li className="sidebarListItem">Logout</li></Link>
           </ul>
         </div>
       </div>
