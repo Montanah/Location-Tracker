@@ -75,7 +75,7 @@ const SignUpForm = () => {
     );
 
     // Make the profile details POST request
-    fetch('/api/post/profile', {
+    fetch('/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
