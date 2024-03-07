@@ -12,7 +12,7 @@ const Dashboard = () => {
         <section>
             <Header />
         </section>
-        <section id='dashboard-container'>
+        <section id="dashboard-container">
             <section id="sidebar-window">
                 <section id="sidebar">
                 <h3 id="sidebar-title">Menu</h3>

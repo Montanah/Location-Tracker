@@ -6,29 +6,23 @@ import '../App.css';
 
 const Header = () => {
   return (
-    <header className="bg-blue-500 p-4 flex items-center justify-between">
+    <header>
       <Link to='/'>
-        <img className="h-10 w-10" id="logo" src={appLogo} alt="Logo" />
+        <img id="logo" src={appLogo} alt="Logo" />
       </Link>
-      <h1 className="text-white text-2xl font-bold">Location Tracker</h1>
-      <nav>
-        <ul className="flex items-center space-x-4">
+      <h1>Location <br/> Tracker</h1>
+      <nav id="header-nav">
+        <ul id="header-nav-ul">
           <li><Link to="/" className="text-white">Home</Link></li>
           <li><Link to="/about" className="text-white">About</Link></li>
           <li><Link to="/contact" className="text-white">Contact</Link></li>
         </ul>
       </nav>
-      <nav id="header-nav">
-        <div className="nav-line">
-          <ul className="header-nav-ul">
-            <li>
-              <ProfileDisplay />
-                </li>
-            </ul>
-        </div>
-      </nav>
+      <div id="profileDisplay">
+        <ProfileDisplay />
+      </div>
     </header>
-  )
+  );
 }
 
 export default Header;

@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer>
-      <p>© 2021 Location Tracker</p>
+      <p>© 2024 Location-Tracker Web App</p>
     </footer>
   );
 };
