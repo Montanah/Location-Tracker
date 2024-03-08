@@ -36,10 +36,9 @@ header {
   }
   
   #header-nav {
-    display: flex !important;
-    align-items: center !important; /* Adjust as needed */
-    justify-content: flex-end !important; /* Align to the right */
-    flex-wrap: wrap !important;
+    margin-top: 0;
+    margin-left: auto; /* Aligns the nav to the right */
+    margin-right: 20px;
   }
   
   #header-nav-ul {
@@ -56,6 +55,13 @@ header {
     margin-right: 5px;
     list-style: none;
     text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    /* border: 0.5px solid #fefefe; */
+    border-radius: 50px;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 5px 5px 5px black;
   }
   
   #header-nav button,
@@ -63,28 +69,13 @@ header {
     vertical-align: middle;
   }
   
-  #header-nav .nav-tem {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-shadow: 2px 2px 2px black;
-    box-shadow: 5px 5px 5px black;
-    border-radius: 20px;
-    border: 5px solid #000000;
-    background-color: #1E90FF;
-    padding: 10px 20px;
-    margin: 0px; 
-    text-align: right; 
-  }
-  
-  #header-nav .nav-tem:hover {
-    background-color: #00BFFF;
-    color: black;
+  #header-nav li:hover {
+    /* background-color: #00BFFF; */
+    color: #00BFFF;
     box-shadow: 5px 5px 5px black;
   }
   
-  #header-nav .nav-tem:active {
+  #header-nav:active {
     background-color: #00BFFF;
     color: black;
     box-shadow: 5px 5px 5px black;
@@ -93,7 +84,7 @@ header {
   #profileDisplay {
     display: flex;
     align-items: flex-end;
-    margin: 0;
+    margin-right: 10px;
     padding: 0;
   }
 
@@ -108,7 +99,6 @@ header {
   #dashboard-container {
     display: grid;
     width: 99.8%;
-    height: 1000px;
     grid-template-columns: 18% 81.5%;
     gap: 10px;
     margin-top: 120px;
@@ -119,11 +109,11 @@ header {
     border-radius: 10px;
     background: linear-gradient(to left, #2563eb, #4f46e5, #000000);
     padding: 10px;
-    height: 520px;
+    height: 85vh;
   }
   
   #sidebar {
-    height: 480px;
+    /* height: 480px; */
     box-shadow: 5px 5px 5px black;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -139,6 +129,7 @@ header {
     font-weight: bold;
     font-family: 'Arial', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 10px;
+    text-align: center;
   }
 
   #sidebarList {
@@ -153,6 +144,15 @@ header {
     font-size: 18px;
     font-weight: bold;
     font-family: 'Arial', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 50px;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 5px 5px 5px black;
+  }
+
+  #sidebarList li:hover {
+    /* background-color: ; */
+    color: #00BFFF;
+    box-shadow: 5px 5px 5px black;
   }
   
   #map-window {
@@ -160,12 +160,21 @@ header {
     border-radius: 10px;
     background-color: white;
     padding: 10px;
-    height: 520px;
+    height: 85vh;
     right: 10px;
+  }
+
+  #map-window h2 {
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Arial', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 10px;
+    text-align: center;
   }
   
   #contentdisplay {
-    height: 420px;
+    /* height: 420px; */
     width: 100%;
     margin-top: 5px;
     padding: 0px, 5px, 0px, 5px;
@@ -176,97 +185,35 @@ header {
     z-index: 50;
     overflow-y: auto;
   }
+
+  #partners {
+    margin-top: 30px;
+  }
+
+  #partners-logos {
+    display: flex;
+    width: 60px;
+    padding-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-evenly;
+    align-items: center;
+  }
   
   Footer {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 9vh;
+    margin-bottom: 0;
+    bottom: 0;
   }
 
   /* Media queries */
-  /* @media screen and (max-width: 1200px) {
-    h1,
-    .nav-tem {
-      font-size: 18px;
-    }
+  @media screen and (max-width: 1200px) {
   }
   
   @media screen and (max-width: 992px) {
-    header {
-      height: auto;
-      width: 98.8%;
-    }
-  
-    #logo {
-      height: 100px;
-      margin-top: auto;
-    }
-  
-    #header-nav {
-      height: 80px;
-      width: auto;
-    }
-  
-    .nav-tem {
+    #sidebarList li {
       font-size: 16px;
-      padding: 8px 16px;
-    }
-  
-    .progress-chart {
-  
-      height: 20px;
-  
-  }
-  
-  body {
-  
-    width: 97.7%;
-  }
-  
-    #curriculum_id {
-      font-size: 8px;
-    }
-  
-    #dashboard-container {
-      grid-template-columns: 100%;
-    }
-  
-    #school-topic-window,
-    #study-window {
-      height: auto;
-      width: 100%;
-      margin-top: 20px;
-    }
-  
-    #school,
-    #subjects1 {
-      height: auto;
-      margin: 0;
-    }
-  
-    #school-title,
-    #subject1 h3 {
-      font-size: 18px;
-    }
-  
-    #school-list-button,
-    #subjects-li {
-      font-size: 14px;
-      padding: 3px 10px;
-    }
-  
-    #contentdisplay {
-      height: 300px;
-      padding: 0;
-    }
-  
-    #topicslist {
-      height: 50px;
-      margin: 0;
-    }
-  
-    #topicslist li {
-      font-size: 16px;
-      padding: 0;
     }
   }
   
@@ -277,32 +224,32 @@ header {
     }
   
     #logo {
-      width: 50px;
-      height: 50px;
-      margin-top: 5px;
+      width: 100px;
+      height: 60px;
+    }
+
+    header h1 {
+      font-size: 20px;
     }
   
     #header-nav {
-      width: 70%;
+      width: 50%;
     }
-  
-    .nav-tem {
-      padding: 6px 12px;
-    }
-  
-    #curriculum_id {
-      font-size: 6px;
+
+    #header-nav li {
+      font-size: 12px;
+      padding: 2px 5px;
+      margin-top: 10px;
     }
   
     #dashboard-container {
       grid-template-columns: 100%;
     }
-  
-    #school-topic-window,
-    #study-window {
+
+    #sidebar-window,
+    #map-window {
       height: auto;
       width: 100%;
-      margin-top: 20px;
     }
   
     #school,
@@ -326,14 +273,4 @@ header {
       height: 200px;
       padding: 0;
     }
-  
-    #topicslist {
-      height: 40px;
-      margin: 0;
-    }
-  
-    #topicslist li {
-      font-size: 14px;
-      padding: 6px 12px;
-    }
-  } */
+  }
