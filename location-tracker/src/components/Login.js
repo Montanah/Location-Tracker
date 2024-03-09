@@ -4,12 +4,15 @@ import AuthService from './AuthService';
 import appLogo from '../images/location_tracker_web_app.png';
 import googleLogo from '../images/google_icon.svg';
 import facebookLogo from '../images/FacebookLogo.png';
+import eyeIcon from '../images/eye_icon.svg';
+import eyeOffIcon from '../images/eye_off_icon.svg';
 import '../LoginSignup.css';
 
 const LogInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -43,6 +46,10 @@ const LogInForm = () => {
       });
   };
 
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  }; 
+
   return (
     <>
       <div id="LS-Header">
@@ -55,27 +62,36 @@ const LogInForm = () => {
           <Link to="/Signup" style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none', marginLeft: '5px' }}>Sign Up</Link>
         </p>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label className="input-label">Email:</label>
+          <div className='input_wrapper'>
             <input
-              className="LSInput"
-              id="email-input"
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
+                className="LSInput"
+                id="email-input"
+                type="email"
+                placeholder='Your Email'
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+              <label for="email" className="input-label">Email:</label>
           </div>
-          <div>
-            <label className="input-label">Password:</label>
+          <div className='input_wrapper'>
             <input
-              className="LSInput"
-              id="pass-input"
-              type="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
+                className="LSInput"
+                id="pass-input"
+                type={showPassword ? 'text' : 'password'}
+                placeholder='Your Password'
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+              <label for="password" className="input-label">Password:</label>
+              <img
+                onClick={handleShowPassword}
+                src={showPassword ? eyeIcon : eyeOffIcon}
+                alt='Eye Icon'
+                title='Eye Icon'
+                className='eye-icon'
+              />
           </div>
           {loginError && <div style={{ color: 'red', fontSize: '13px', fontStyle: 'italic'}} className="error-message">{loginError}</div>}
           <button className="LSbutton" type="submit" >

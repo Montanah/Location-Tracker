@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import appLogo from '../images/location_tracker_web_app.png';
 import googleLogo from '../images/google_icon.svg';
 import facebookLogo from '../images/FacebookLogo.png';
+import eyeIcon from '../images/eye_icon.svg';
+import eyeOffIcon from '../images/eye_off_icon.svg';
 import '../LoginSignup.css';
 
 const SignUpForm = () => {
@@ -14,6 +16,7 @@ const SignUpForm = () => {
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,6 +45,10 @@ const SignUpForm = () => {
 
   const handlePasswordVerifyChange = (e) => {
     setPasswordVerify(e.target.value);
+  };
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
   const handleCountryChange = (e) => {
@@ -122,21 +129,35 @@ const SignUpForm = () => {
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <div>
-              <label className='input-label'>Full Name:</label>
-              <input className='LSInput' id='firstname-input' type="text" value={fullname} onChange={handleNameChange} required />
+            <div className='input_wrapper'>
+              <input className='LSInput' id='firstname-input' type="text" value={fullname} onChange={handleNameChange} required placeholder='Your Fullname'/>
+              <label for="full name" className='input-label'>Full Name:</label>
             </div>
-            <div>
-              <label className='input-label'>Email:</label>
-              <input className='LSInput' id='email-input' type="email" value={email} onChange={handleEmailChange} required />
+            <div className='input_wrapper'>
+              <input className='LSInput' id='email-input' type="email" value={email} onChange={handleEmailChange} required placeholder='Your Email'/>
+              <label for="email" className='input-label'>Email:</label>
             </div>
-            <div>
-              <label className='input-label'>Password:</label>
-              <input className='LSInput' id='pass-input' type="password" value={password} onChange={handlePasswordChange} required />
+            <div className='input_wrapper'>
+              <input className='LSInput' id='pass-input' type="password" value={password} onChange={handlePasswordChange} required placeholder='Your Password'/>
+              <label for="password" className='input-label'>Password:</label>
+              <img
+                onClick={handleShowPassword}
+                src={showPassword ? eyeIcon : eyeOffIcon}
+                alt='Eye Icon'
+                title='Eye Icon'
+                className='eye-icon'
+              />
             </div>
-            <div>
-              <label className='input-label'>Verify Password:</label>
-              <input className='LSInput' id='verify-pass-input' type="password" value={passwordVerify} onChange={handlePasswordVerifyChange} required />
+            <div className='input_wrapper'>
+              <input className='LSInput' id='verify-pass-input' type="password" value={passwordVerify} onChange={handlePasswordVerifyChange} required placeholder='Re-enter Your Password'/>
+              <label for="verify password" className='input-label'>Verify Password:</label>
+              <img
+                onClick={handleShowPassword}
+                src={showPassword ? eyeIcon : eyeOffIcon}
+                alt='Eye Icon'
+                title='Eye Icon'
+                className='eye-icon'
+              />
             </div>
             {signupError && <div className="error-message" style={{ color: 'red', fontStyle: 'italic' }}>{signupError}</div>}
             <div>
