@@ -23,7 +23,7 @@ class AuthService {
     }
   
     // Logout method
-    logout() {
+    Logout() {
       localStorage.removeItem('access_token');
     }
   

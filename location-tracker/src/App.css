@@ -149,10 +149,40 @@ header {
     box-shadow: 5px 5px 5px black;
   }
 
+  #locationDropdown {
+    background-color: transparent;
+  }
+
   #sidebarList li:hover {
     /* background-color: ; */
     color: #00BFFF;
     box-shadow: 5px 5px 5px black;
+  }
+
+  .logout-container {
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column; 
+    height: 80vh;
+  }
+
+  #LogoutButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00aaff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  #LogoutButton:hover {
+    background-color: #45a049;
   }
   
   #map-window {
@@ -214,6 +244,11 @@ header {
   @media screen and (max-width: 992px) {
     #sidebarList li {
       font-size: 16px;
+    }
+
+    .sidebarListItem {
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
   }
   

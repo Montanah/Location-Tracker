@@ -5,8 +5,14 @@ import './App.css';
 import LogInForm from './components/Login';
 import SignUpForm from './components/Signup';
 import Dashboard from './components/Dashboard';
+import Logout from './components/Logout';
 
 function App() {
+
+  const handleLogout = () => {
+    console.log('User is logged out');
+  };
+
   return (
     <Router>
       <div className="App">
@@ -15,6 +21,7 @@ function App() {
             <Route path="/" element={<LogInForm />} />
             <Route path="/Signup" element={<SignUpForm />} />
             <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/Logout" element={<Logout onLogout={handleLogout} />} />
           </Routes>
       </div>
     </Router>
