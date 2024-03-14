@@ -43,6 +43,9 @@ app.set('view engine', 'hbs');
 //importing the routes
 const users = require('./routes/users');
 const auth = require('./routes/auth');
+const profile = require('./routes/profile');
+const addLocation = require('./routes/locations');
+const displayLocations = require('./routes/locations');
 
 // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: false}));
@@ -51,7 +54,8 @@ app.use(express.json());
 //defined routes
 app.use('/', require('./routes/users'))
 app.use('/auth', require('./routes/auth'));
-
+app.use('/profile', require('./routes/profile'));
+app.use('/locations', require('./routes/locations'));
 
 // Start the server
 app.listen(port, host, () => {

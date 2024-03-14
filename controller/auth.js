@@ -49,8 +49,8 @@ exports.register = async (req, res) => {
                 const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
 
-                // Redirect to user dashboard after successful registration
-                res.redirect('/dashboard');
+                // Redirect user to login form after successful registration
+                res.redirect('/login');
             });
         } catch (error) {
             console.error(error);
@@ -111,6 +111,90 @@ exports.logout = (req, res) => {
 // Dashboard controller
 exports.dashboard = (req, res) => {
     res.render('dashboard');
+};
+
+// Profile controller
+exports.fetchUserProfile = (req, res) => {
+    try {
+        // Extract access token from request header
+        const token = req.header('Authorization').replace('Bearer ', '');
+
+        // Verify token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        // fetch user profile data from db
+        db.query('SELECT * FROM users WHERE email = ?', [decoded.email], (error, results) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).send('Internal Server Error');
+            }
+
+            // Extract user profile data
+            const userProfile = {
+                name: results[0].name,
+                avatar_url: results[0].avatar_url,
+            };
+
+            // Send the user profile data in the response
+            res.status(200).json(userProfile);
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+    }
+};
+
+// Add location controller
+exports.addLocation = (req, res) => {
+    const { location, email } = req.body;
+
+    // Input validation from server side
+    if (!location || !email) {
+        return res.status(400).send('All fields are required');
+    }
+
+    // Insert new location into the database
+    db.query('INSERT INTO locations SET ?', { location, email }, (error, result) => {
+        if (error) {
+            console.error(error);
+            return res.status(500).send('Internal Server Error');
+        }
+
+        // Send success message in the response
+        res.status(201).send('Location added successfully');
+    });
+};
+
+// Locations display controller
+exports.displayLocations = (req, res) => {
+    try {
+        // Extract access token from request header
+        const token = req.header('Authorization').replace('Bearer ', '');
+
+        // Verify token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+        // fetch user profile data from db
+        db.query('SELECT * FROM locations WHERE email = ?', [decoded.email], (error, results) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).send('Internal Server Error');
+            }
+
+            // Extract user profile data
+            const userLocations = {
+                locations: results,
+            };
+
+            // Send the user profile data in the response
+            res.status(200).json(userLocations);
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+    }
 };
 
 // Forgot password controller
