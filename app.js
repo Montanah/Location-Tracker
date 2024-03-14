@@ -44,8 +44,8 @@ const countries = require('./routes/countries');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const profile = require('./routes/profile');
-const addLocations = require('./routes/addLocations');
-const displayLocations = require('./routes/displayLocations');
+const addLocations = require('./routes/locations');
+const displayLocations = require('./routes/locations');
 
 // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: false}));
