@@ -1,10 +1,9 @@
 // Route for fetching user profile
 const express = require('express');
 const router = express.Router();
-const profileController = require('../controller/profile');
-const auth = require('../middleware/auth');
+const authController = require('../controller/auth');
 
 // Fetch user profile
-router.get('/profile', auth, profileController.fetchUserProfile);
+router.get('/profile', authController.fetchUserProfile);
 
 module.exports = router;

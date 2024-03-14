@@ -2,6 +2,31 @@ const db = require('../app');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+// Countries fetch controller
+exports.fetchCountries = (req, res) => {
+    try {
+        // Fetch countries from the database
+        db.query('SELECT * FROM countries', (error, results) => {
+            if (error) {
+                console.error(error);
+                return res.status(500).send('Internal Server Error');
+            }
+
+            // Extract countries from the results
+            const countries = {
+                countries: results,
+            };
+
+            // Send the countries in the response
+            res.status(200).json(countries);
+        });
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+    }
+};
+
 // Register a new user controller, assuming name fields match
 exports.register = async (req, res) => {
     const { name, email, password, password2 } = req.body;

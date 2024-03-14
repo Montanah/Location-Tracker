@@ -40,21 +40,24 @@ app.use(express.static(publicDirectory));
 app.set('view engine', 'hbs');
 
 //importing the routes
+const countries = require('./routes/countries');
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 const profile = require('./routes/profile');
-const addLocation = require('./routes/locations');
-const displayLocations = require('./routes/locations');
+const addLocations = require('./routes/addLocations');
+const displayLocations = require('./routes/displayLocations');
 
 // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: false}));
 app.use(express.json());
 
 //defined routes
+app.use('/countries', countries);
 app.use('/', require('./routes/users'))
 app.use('/auth', require('./routes/auth'));
 app.use('/profile', require('./routes/profile'));
-app.use('/locations', require('./routes/locations'));
+app.use('/addLocation', addLocations);
+app.use('/displayLocations', displayLocations);
 
 // Start the server
 app.listen(port, host, () => {
