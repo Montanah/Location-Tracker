@@ -8,7 +8,6 @@ const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 8000;
 const { MongoClient } = require('mongodb');
 const connectToMongoDB = require('./dbConnection');
-dotenv.config({ path: "./.env"})
 
 //connecting the db
 connectToMongoDB().then((db) => {
