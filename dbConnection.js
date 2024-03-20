@@ -12,10 +12,10 @@ async function connectToMongoDB() {
     try {
         await client.connect();
         console.log('Connected to MongoDB');
-        return client.db(); // Return the database object
+        return client.db(); 
     } catch (err) {
         console.error('Error connecting to MongoDB:', err);
-        throw err; // Throw the error to handle it elsewhere
+        throw err; 
     }
 }
 
