@@ -1,0 +1,4 @@
+#no files ignored
+
+node_modules/
+.env
